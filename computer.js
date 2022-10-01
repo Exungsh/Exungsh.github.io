@@ -189,8 +189,10 @@ function computer(ai, player) {
                                 continue;
                             }
                             else {
+                                var copy_player = JSON.parse(JSON.stringify(player));
+                                var copy_ai = JSON.parse(JSON.stringify(ai));
                                 copy_ai[row][col] = NUM;
-                                copy_player = judge(col, copy_player);
+                                judge(col, copy_player);
                                 point = count(copy_ai) - count(copy_player);
                                 if (point > max_point) {
                                     best_row = row;
@@ -216,6 +218,8 @@ function computer(ai, player) {
                             continue;
                         }
                         else {
+                            var copy_player = JSON.parse(JSON.stringify(player));
+                            var copy_ai = JSON.parse(JSON.stringify(ai));
                             copy_ai[row][col] = NUM;
                             judge(col, copy_player);
                             point = count(copy_ai) - count(copy_player);
