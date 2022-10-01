@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+body {
+    background-color: #112d4e;
+}
+
+.nav {
+    height: 100px;
+    background-color: #3f72af;
+    font-family: 微软雅黑;
+    font-size: 20px;
+    color: #112d4e;
+    padding-left: 100px;
+    padding-top: 22px;
+    box-shadow: 0px 15px 20px black;
+}
+
+.nav div {
+    margin-left: 180px;
+    margin-top: -px;
+    font-size: 14px;
+    font-family: Arial Black, Helvetica, sans-serif;
+}
+
+.content {
+    height: 530px;
+    background-color: #88a4d6;
+    margin-top: 50px;
+    margin-left: 100px;
+    padding: 10px;
+    box-shadow: 0px 15px 30px black;
+}
+
+.content p {
+    display: block;
+    height: 200px;
+    width: 410px;
+    color: #0b1d31;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 30px;
+    padding-top: 32px;
+}
+
+.play {
+    display: block;
+    float: left;
+    height: 510px;
+    width: 400px;
+    background-color: #163961;
+}
+
+.intro {
+    height: 510px;
+    margin-left: 400px;
+    background-color: #3f72af;
+    padding-top: 10px;
+}
+
+.logo {
+    height: 300px;
+    font-size: 180px;
+    padding-left: 80px;
+    padding-top: 20px;
+}
+
+.pvp,
+.pve {
+    display: block;
+    background-color: #3f72af;
+    font-size: 25px;
+    color: #0b1d31;
+    height: 80px;
+    width: 280px;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    margin-left: 60px;
+    border-radius: 40px;
+    border: 0px;
+    box-shadow: 0px 10px 10px black;
+    padding-top: 22px;
+    text-align: center;
+}
+
+.pvp:hover {
+    background-color: #0b1d31;
+    color: #3f72af;
+}
+
+.pve {
+    background-color: #88a4d6;
+    color: #112d4e;
+    margin-top: 15px;
+}
+
+.pve:hover {
+    background-color: #0b1d31;
+    color: #3f72af;
+}
+
+.left {
+    display: block;
+    float: left;
+    height: 490px;
+    width: 400px;
+    padding: 30px;
+    font-family: 微软雅黑;
+}
+
+.left div {
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.right {
+    display: block;
+    float: left;
+}

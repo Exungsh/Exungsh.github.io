@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="game.js"></script>
+    <script src="dice.js"></script>
+    <link rel="stylesheet" href="css/game.css">
+</head>
+
+<body>
+    <!-- 主界面 -->
+    <div class="main">
+        <!-- 左部状态栏 提示当前是谁的回合 -->
+        <div class="bar">
+            <button class="whoround" id="who_A">A</button>
+            <button class="whoround" id="who_B"></button>
+        </div>
+        <!-- 棋盘 -->
+        <div class="playboard">
+            <div class="A">
+                <ul>
+                    <li><button id="A_1" onclick="put_num_A(id,0,0)">0</button></li>
+                    <li><button id="A_2" onclick="put_num_A(id,0,1)">0</button></li>
+                    <li><button id="A_3" onclick="put_num_A(id,0,2)">0</button></li>
+                    <li><button id="A_4" onclick="put_num_A(id,1,0)">0</button></li>
+                    <li><button id="A_5" onclick="put_num_A(id,1,1)">0</button></li>
+                    <li><button id="A_6" onclick="put_num_A(id,1,2)">0</button></li>
+                    <li><button id="A_7" onclick="put_num_A(id,2,0)">0</button></li>
+                    <li><button id="A_8" onclick="put_num_A(id,2,1)">0</button></li>
+                    <li><button id="A_9" onclick="put_num_A(id,2,2)">0</button></li>
+                </ul>
+            </div>
+            <div class="B">
+                <ul>
+                    <li><button id="B_1" onclick="put_num_B(id,0,0)">0</button></li>
+                    <li><button id="B_2" onclick="put_num_B(id,0,1)">0</button></li>
+                    <li><button id="B_3" onclick="put_num_B(id,0,2)">0</button></li>
+                    <li><button id="B_4" onclick="put_num_B(id,1,0)">0</button></li>
+                    <li><button id="B_5" onclick="put_num_B(id,1,1)">0</button></li>
+                    <li><button id="B_6" onclick="put_num_B(id,1,2)">0</button></li>
+                    <li><button id="B_7" onclick="put_num_B(id,2,0)">0</button></li>
+                    <li><button id="B_8" onclick="put_num_B(id,2,1)">0</button></li>
+                    <li><button id="B_9" onclick="put_num_B(id,2,2)">0</button></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 中部操作栏 -->
+        <div class="operate">
+            <div class="pointboard">
+                <div class="round">Point Board</div>
+                <div class="point">
+                    <span>A's point: </span><span id="ap">0</span>
+                </div>
+                <div class="point">
+                    <span>B's point: </span><span id="bp">0</span>
+                </div>
+                <div class="window" id="window">
+                    A VS B
+                </div>
+            </div>
+            <div class="touzi">
+                <div id="area"></div>
+                <div id="operation">
+                    <button id="roll">Roll</button>
+                    <br>
+                    <button id="restart" onclick="restart()">Restart</button>
+                </div>
+                <script src="dice.js"></script>
+                <script>
+                    function g(id) {
+                        return document.getElementById(id)
+                    }
+
+                    function on(dom, event, func) {
+                        if (dom.addEventListener) {
+                            dom.addEventListener(event, func, false)
+                        } else {
+                            dom.attachEvent('on' + event, func)
+                        }
+                    }
+
+                    var myDice = dice(document.getElementById('area'), {
+                        edgeLength: 100,
+                        radius: 0,
+                        hasShadow: false,
+                        shadowTop: 90,
+                        keepAnimationTime: 1000,
+                        onKeepAnimationEnd: function(result) {
+                            console.log('onKeepAnimationEnd,result:' + result + ',time:' + (new Date).getTime())
+                        },
+                        onEndAnimationEnd: function(result) {
+                            console.log('onEndAnimationEnd,result:' + result + ',time:' + (new Date).getTime())
+                        }
+                    })
+                    on(g('roll'), 'click', function() {
+                        if (throw_chance == 0) {
+                            x = document.getElementById("window");
+                            x.innerHTML = "还没选定位置！！";
+                        } else {
+                            throw_chance = 0;
+                            NUM = Math.floor(Math.random() * 6) + 1;
+                            myDice.roll(NUM)
+                            place = 1;
+                        }
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+
+    </div>
+</body>
+
+</html>
