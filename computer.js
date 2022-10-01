@@ -168,6 +168,7 @@ function computer(ai, player) {
                         break;
                     }
                 }
+                break;
             }
             else if (NUM >= 4 && col_cnt[NUM][j] >= 1 && can_done[j] >= 1) {
                 for (var i = 0; i < 3; i++) {
@@ -177,6 +178,7 @@ function computer(ai, player) {
                         break;
                     }
                 }
+                break;
             }
             else if (col_cnt[4][j] >= 2 || col_cnt[5][j] >= 2 || col_cnt[6][j] >= 2 || col_cnt[3] == 3 && can_done[0] + can_done[1] + can_done[2] > can_done[j]) {
                 var max_point = -162;
@@ -259,12 +261,12 @@ function computer(ai, player) {
     A_round = 1;
     B_round = 0;
     x = document.getElementById("window");
-    x.innerHTML = "现在是A的回合";
+    x.innerHTML = "现在是你的回合";
     x = document.getElementById("who_B");
     x.innerHTML = '';
     x.style.backgroundColor = "rgba(255, 255, 255, 0)";
     x = document.getElementById("who_A");
-    x.innerHTML = 'A';
+    x.innerHTML = 'P';
     x.style.backgroundColor = "#3f72af";
     throw_chance = 1;
     if (check(player_b)) {
