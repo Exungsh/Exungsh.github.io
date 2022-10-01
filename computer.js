@@ -190,7 +190,7 @@ function computer(ai, player) {
                             }
                             else {
                                 copy_ai[row][col] = NUM;
-                                copy_player = judge(col, copy_player);
+                                judge(col, copy_player);
                                 point = count(copy_ai) - count(copy_player);
                                 if (point > max_point) {
                                     best_row = row;
