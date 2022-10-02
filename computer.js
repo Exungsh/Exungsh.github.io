@@ -258,6 +258,7 @@ function computer(ai, player) {
     }
     update_point();
     print_board();
+    place = 0;
     A_round = 1;
     B_round = 0;
     x = document.getElementById("window");

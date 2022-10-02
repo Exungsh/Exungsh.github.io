@@ -156,6 +156,7 @@ function put_num_B(name, row, col) {
                 judge(col, player_a);
                 update_point();
                 print_board();
+                place = 0;
                 A_round = 1;
                 B_round = 0;
                 x = document.getElementById("window");

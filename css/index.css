@@ -28,80 +28,80 @@ body {
 }
 
 .nav {
-    height: 100px;
+    height: 6.672vw;
     background-color: #3f72af;
     font-family: 微软雅黑;
-    font-size: 20px;
+    font-size: 1.334vw;
     color: #112d4e;
-    padding-left: 100px;
-    padding-top: 22px;
-    box-shadow: 0px 15px 20px black;
+    padding-left: 6.672vw;
+    padding-top: 1.468vw;
+    box-shadow: 0.000vw 1.001vw 1.334vw black;
 }
 
 .nav div {
-    margin-left: 180px;
+    margin-left: 12.009vw;
     margin-top: -px;
-    font-size: 14px;
+    font-size: 0.934vw;
     font-family: Arial Black, Helvetica, sans-serif;
 }
 
 .content {
-    height: 530px;
+    height: 35.359vw;
     background-color: #88a4d6;
-    margin-top: 50px;
-    margin-left: 100px;
-    padding: 10px;
-    box-shadow: 0px 15px 30px black;
+    margin-top: 3.336vw;
+    margin-left: 6.672vw;
+    padding: 0.667vw;
+    box-shadow: 0.000vw 1.001vw 2.001vw black;
 }
 
 .content p {
     display: block;
-    height: 200px;
-    width: 410px;
+    height: 13.343vw;
+    width: 27.353vw;
     color: #0b1d31;
-    font-size: 20px;
+    font-size: 1.334vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding-left: 30px;
-    padding-top: 32px;
+    padding-left: 2.001vw;
+    padding-top: 2.135vw;
 }
 
 .play {
     display: block;
     float: left;
-    height: 510px;
-    width: 400px;
+    height: 34.025vw;
+    width: 26.686vw;
     background-color: #163961;
 }
 
 .intro {
-    height: 510px;
-    margin-left: 400px;
+    height: 34.025vw;
+    margin-left: 26.686vw;
     background-color: #3f72af;
-    padding-top: 10px;
+    padding-top: 0.667vw;
 }
 
 .logo {
-    height: 300px;
-    font-size: 180px;
-    padding-left: 80px;
-    padding-top: 20px;
+    height: 20.015vw;
+    font-size: 12.009vw;
+    padding-left: 5.337vw;
+    padding-top: 1.334vw;
 }
 
 .pvp,
 .pve {
     display: block;
     background-color: #3f72af;
-    font-size: 25px;
+    font-size: 1.668vw;
     color: #0b1d31;
-    height: 80px;
-    width: 280px;
+    height: 5.337vw;
+    width: 18.680vw;
     font-family: 微软雅黑;
     font-weight: bold;
-    margin-left: 60px;
-    border-radius: 40px;
-    border: 0px;
-    box-shadow: 0px 10px 10px black;
-    padding-top: 22px;
+    margin-left: 4.003vw;
+    border-radius: 2.669vw;
+    border: 0.000vw;
+    box-shadow: 0.000vw 0.667vw 0.667vw black;
+    padding-top: 1.468vw;
     text-align: center;
 }
 
@@ -113,7 +113,7 @@ body {
 .pve {
     background-color: #88a4d6;
     color: #112d4e;
-    margin-top: 15px;
+    margin-top: 1.001vw;
 }
 
 .pve:hover {
@@ -124,19 +124,19 @@ body {
 .left {
     display: block;
     float: left;
-    height: 490px;
-    width: 400px;
-    padding: 30px;
+    height: 32.691vw;
+    width: 26.686vw;
+    padding: 2.001vw;
     font-family: 微软雅黑;
 }
 
 .left div {
-    font-size: 20px;
-    margin-top: 50px;
+    font-size: 1.334vw;
+    margin-top: 3.336vw;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 2.001vw;
 }
 
 .right {
