@@ -22,35 +22,34 @@ a {
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
     background-color: #112d4e;
 }
 
 .main {
     display: block;
     float: left;
-    height: 52.761vw;
-    width: 67.939vw;
+    height: 730px;
+    width: 940px;
+    margin-right: 200px;
 }
 
 .bar {
     display: block;
     float: left;
     background-color: #88a4d6;
-    height: 50.593vw;
-    width: 5.782vw;
-    margin-top: 2.168vw;
-    border-radius: 0 1.446vw 1.446vw 0;
+    height: 700px;
+    width: 80px;
+    margin-top: 30px;
+    border-radius: 0 20px 20px 0;
 }
 
 .whoround {
-    height: 18.069vw;
-    width: 4.337vw;
-    margin-left: 1.446vw;
-    border-radius: 1.446vw 0 0 1.446vw;
+    height: 250px;
+    width: 60px;
+    margin-left: 20px;
+    border-radius: 20px 0 0 20px;
     border: 0;
-    font-size: 2.530vw;
+    font-size: 35px;
     font-weight: bold;
     color: #112d4e;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -58,41 +57,41 @@ body {
 
 #who_A {
     background-color: #3f72af;
-    margin-top: 3.614vw;
+    margin-top: 50px;
 }
 
 #who_B {
-    margin-top: 7.228vw;
+    margin-top: 100px;
     background-color: rgba(255, 255, 255, 0);
 }
 
 .playboard {
     display: block;
     float: left;
-    margin: 2.168vw;
-    height: 50.593vw;
-    width: 25.296vw;
-    border-radius: 1.446vw;
+    margin: 30px;
+    height: 700px;
+    width: 350px;
+    border-radius: 20px;
     background-color: #3f72af;
 }
 
 .playboard button:active {
     transform: scale(0.95);
-    box-shadow: 0.217vw 0.145vw 1.590vw 0.072vw rgba(0, 0, 0, 0.24);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
 .A {
-    height: 23.851vw;
-    width: 23.851vw;
+    height: 330px;
+    width: 330px;
     margin: 0 auto;
-    margin-top: 0.723vw;
+    margin-top: 10px;
 }
 
 .B {
-    height: 23.851vw;
-    width: 23.851vw;
+    height: 330px;
+    width: 330px;
     margin: 0 auto;
-    margin-top: 1.446vw;
+    margin-top: 20px;
 }
 
 .playboard li {
@@ -101,14 +100,14 @@ body {
 }
 
 .playboard button {
-    height: 7.228vw;
-    width: 7.228vw;
-    margin: 0.361vw;
+    height: 100px;
+    width: 100px;
+    margin: 5px;
     background-color: #88a4d6;
-    border: 0.000vw;
-    border-radius: 1.446vw;
-    box-shadow: 0.361vw 0.361vw 1.446vw rgb(27, 92, 122);
-    font-size: 2.891vw;
+    border: 0px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgb(27, 92, 122);
+    font-size: 40px;
     font-weight: bolder;
     color: #112d4e;
 }
@@ -116,57 +115,57 @@ body {
 .operate {
     display: block;
     float: left;
-    height: 50.593vw;
-    width: 32.524vw;
+    height: 700px;
+    width: 450px;
     background-color: #3f72af;
-    border-radius: 1.446vw;
-    margin-top: 2.168vw;
+    border-radius: 20px;
+    margin-top: 30px;
 }
 
 .pointboard {
-    height: 20.237vw;
-    width: 28.910vw;
+    height: 280px;
+    width: 400px;
     background-color: #88a4d6;
     color: #112d4e;
     margin: 0 auto;
-    margin-top: 1.084vw;
-    margin-bottom: 1.446vw;
-    padding-top: 2.891vw;
-    padding-left: 1.446vw;
-    border-radius: 1.446vw;
-    font-size: 3.614vw;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding-top: 40px;
+    padding-left: 20px;
+    border-radius: 20px;
+    font-size: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .point {
-    margin-left: 0.723vw;
-    font-size: 2.530vw;
+    margin-left: 10px;
+    font-size: 35px;
 }
 
 .round {
-    margin-left: 0.723vw;
-    margin-bottom: 1.446vw;
+    margin-left: 10px;
+    margin-bottom: 20px;
 }
 
 .window {
-    height: 2.891vw;
-    width: 26.019vw;
-    margin-top: 2.168vw;
+    height: 40px;
+    width: 360px;
+    margin-top: 30px;
     background-color: #112d4e;
-    font-size: 2.530vw;
-    padding: 0.867vw;
+    font-size: 35px;
+    padding: 12px;
     color: #88a4d6;
-    border-radius: 1.446vw;
+    border-radius: 20px;
 }
 
 .touzi {
-    height: 23.489vw;
-    width: 30.356vw;
+    height: 325px;
+    width: 420px;
     background-color: #88a4d6;
     color: #112d4e;
     margin: 0 auto;
-    border-radius: 1.446vw;
-    margin-top: 1.446vw;
+    border-radius: 20px;
+    margin-top: 20px;
     font-weight: bold;
 }
 
@@ -177,47 +176,47 @@ body {
 #area {
     display: block;
     float: left;
-    height: 14.455vw;
-    width: 14.455vw;
-    border-radius: 7.228vw;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
     margin: 0 auto;
     background-color: #112d4e;
-    margin: 0 1.446vw;
-    margin-top: 4.481vw;
-    box-shadow: 0.217vw 0.217vw 1.446vw rgb(16, 55, 73);
+    margin: 0 20px;
+    margin-top: 62px;
+    box-shadow: 3px 3px 20px rgb(16, 55, 73);
 }
 
 #operation {
     display: block;
     float: left;
-    height: 11.564vw;
-    width: 10.841vw;
+    height: 160px;
+    width: 150px;
     text-align: center;
-    margin-top: 5.204vw;
+    margin-top: 72px;
 }
 
 #roll,
 #restart {
-    height: 5.782vw;
-    width: 10.841vw;
-    border-radius: 1.446vw;
-    border: 0.000vw;
+    height: 80px;
+    width: 150px;
+    border-radius: 20px;
+    border: 0px;
     color: #88a4d6;
-    font-size: 2.168vw;
-    margin-bottom: 1.446vw;
-    box-shadow: 0.217vw 0.217vw 0.723vw rgb(16, 55, 73);
+    font-size: 30px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 10px rgb(16, 55, 73);
 }
 
 .touzi button:active {
     transform: scale(0.98);
-    box-shadow: 0.217vw 0.145vw 1.590vw 0.072vw rgba(0, 0, 0, 0.24);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
 .right {
     float: left;
-    height: 50.593vw;
-    width: 36.138vw;
+    height: 700px;
+    width: 500px;
     background-color: #3f72af;
-    margin: 2.168vw;
-    border-radius: 1.446vw;
+    margin: 30px;
+    border-radius: 20px;
 }
