@@ -1,5 +1,6 @@
 //骰子点数
 NUM = 0;
+
 //存储棋盘
 player_a = [
     [0, 0, 0],
@@ -11,30 +12,41 @@ player_b = [
     [0, 0, 0],
     [0, 0, 0]
 ];
+
 //标记当前是谁的回合
 A_round = 1;
 B_round = 0;
+
 //A、B分数
 apoint = 0;
 bpoint = 0;
+
 //是否放置过了
 place = 0;
+
 //是否可以扔骰子
 throw_chance = 1;
+
+//选择的位置
+var A_choose_x = 0;
+var A_choose_y = 0;
+var B_choose_x = 0;
+var B_choose_y = 0;
 
 //在window中打印游戏结果
 function end_game() {
     if (apoint > bpoint) {
         x = document.getElementById("window");
-        x.innerHTML = "玩家A获胜！！";
+        x.innerHTML = "你赢了！！";
     } else if (apoint < bpoint) {
         x = document.getElementById("window");
-        x.innerHTML = "玩家B获胜！！";
+        x.innerHTML = "电脑获胜💻！！";
     } else {
         x = document.getElementById("window");
         x.innerHTML = "罕见的平局！！";
     }
 }
+
 //传入棋盘名，返回1说明棋盘已满，游戏结束
 function check(player) {
     var count = 0;
@@ -50,6 +62,7 @@ function check(player) {
         return 0;
     }
 }
+
 //输入列、对手棋盘名，消除对手该列所有和骰子值相同的数
 function judge(col, arch) {
     for (var i = 0; i < 3; i++) {
@@ -58,6 +71,7 @@ function judge(col, arch) {
         }
     }
 }
+
 //传入棋盘名，返回当前棋盘总分
 function count(player) {
     sum = 0;
@@ -84,6 +98,7 @@ function count(player) {
     }
     return sum;
 }
+
 //将A、B的分数写入point_board
 function update_point() {
     apoint = count(player_a);
@@ -93,11 +108,12 @@ function update_point() {
     x = document.getElementById("bp");
     x.innerHTML = bpoint;
 }
+
 //玩家A操作函数
 function put_num_A(name, row, col) {
     if (place == 0) {
         x = document.getElementById("window");
-        x.innerHTML = "再下就不礼貌了！！";
+        x.innerHTML = "还没扔骰子！！";
     } else {
         if (A_round != 1) {
             x = document.getElementById("window");
@@ -108,13 +124,18 @@ function put_num_A(name, row, col) {
                 x = document.getElementById("window");
                 x.innerHTML = "不能下在这里！！";
             } else {
+                restore_color(B_choose_x, B_choose_y, 'B');
                 place = 0;
                 x = document.getElementById(name);
                 x.innerHTML = NUM;
                 player_a[row][col] = NUM;
+                A_choose_x = row;
+                A_choose_y = col;
+                set_color(A_choose_x, A_choose_y, 'A');
                 judge(col, player_b);
                 update_point();
                 print_board();
+                //调整参数
                 A_round = 0;
                 B_round = 1;
                 x = document.getElementById("window");
@@ -147,7 +168,7 @@ function computer(ai, player) {
     var can_done = [0, 0, 0];
     var copy_player = JSON.parse(JSON.stringify(player));
     var copy_ai = JSON.parse(JSON.stringify(ai));
-    //====================================================
+    restore_color(A_choose_x, A_choose_y, 'A');
     for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
             col_cnt[copy_player[j][i]][i] += 1;
@@ -156,13 +177,13 @@ function computer(ai, player) {
             }
         }
     }
-    //=====================================================
     if (NUM >= 3) {
         for (var j = 0; j < 3; j++) {
-            //-----------------------------------------
             if (col_cnt[NUM][j] >= 2 && can_done[j] >= 1) {
                 for (var i = 0; i < 3; i++) {
                     if (ai[i][j] == 0) {
+                        B_choose_x = i;
+                        B_choose_y = j;
                         ai[i][j] = NUM;
                         judge(j, player);
                         break;
@@ -173,6 +194,8 @@ function computer(ai, player) {
             else if (NUM >= 4 && col_cnt[NUM][j] >= 1 && can_done[j] >= 1) {
                 for (var i = 0; i < 3; i++) {
                     if (ai[i][j] == 0) {
+                        B_choose_x = i;
+                        B_choose_y = j;
                         ai[i][j] = NUM;
                         judge(j, player);
                         break;
@@ -205,11 +228,12 @@ function computer(ai, player) {
                         }
                     }
                 }
+                B_choose_x = best_row;
+                B_choose_y = best_col;
                 ai[best_row][best_col] = NUM;
                 judge(best_col, player);
                 break;
             }
-            //--------------------------------------------------------
             else {
                 var max_point = -162;
                 var best_row = 0;
@@ -233,6 +257,8 @@ function computer(ai, player) {
                         }
                     }
                 }
+                B_choose_x = best_row;
+                B_choose_y = best_col;
                 ai[best_row][best_col] = NUM;
                 judge(best_col, player);
                 break;
@@ -250,14 +276,18 @@ function computer(ai, player) {
         }
         for (var i = 0; i < 3; i++) {
             if (ai[i][jmax] == 0) {
+                B_choose_x = i;
+                B_choose_y = jmax;
                 ai[i][jmax] = NUM;
                 judge(jmax, player);
                 break;
             }
         }
     }
+    set_color(B_choose_x, B_choose_y, 'B');
     update_point();
     print_board();
+    //调整参数
     place = 0;
     A_round = 1;
     B_round = 0;
@@ -341,8 +371,23 @@ function restart() {
     x.innerHTML = "现在是你的回合";
     update_point();
     print_board();
+    restore_color(A_choose_x, A_choose_y, 'A');
+    restore_color(B_choose_x, B_choose_y, 'B');
 }
-
+function set_color(row, col, name) {
+    var id = row * 3 + col + 1;
+    id = id.toString();
+    x = document.getElementById(name + "_" + id);
+    x.style.backgroundColor = "#112d4e";
+    x.style.color = "#88a4d6";
+}
+function restore_color(row, col, name) {
+    var id = row * 3 + col + 1;
+    id = id.toString();
+    x = document.getElementById(name + "_" + id);
+    x.style.backgroundColor = "#88a4d6";
+    x.style.color = "#112d4e";
+}
 
 
 

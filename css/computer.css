@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    transition-property: all;
+    transition-duration: 0.3s;
 }
 
 li {
@@ -26,11 +28,10 @@ body {
 }
 
 .main {
-    display: block;
-    float: left;
     height: 730px;
     width: 940px;
-    margin-right: 200px;
+    margin: 0 auto;
+    margin-bottom: 200px;
 }
 
 .bar {
@@ -40,7 +41,7 @@ body {
     height: 700px;
     width: 80px;
     margin-top: 30px;
-    border-radius: 0 20px 20px 0;
+    border-radius: 20px;
 }
 
 .whoround {
@@ -78,6 +79,9 @@ body {
 .playboard button:active {
     transform: scale(0.95);
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+.playboard button:hover {
+    transform: scale(1.05);
 }
 
 .A {
@@ -205,6 +209,10 @@ body {
     font-size: 30px;
     margin-bottom: 20px;
     box-shadow: 3px 3px 10px rgb(16, 55, 73);
+}
+#roll:hover,
+#restart:hover {
+    transform: scale(1.05);
 }
 
 .touzi button:active {
