@@ -164,11 +164,20 @@ function put_num_A(name, row, col) {
 
 function computer(ai, player) {
     place = 1;
-    var col_cnt = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    var col_cnt = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ];
     var can_done = [0, 0, 0];
     var copy_player = JSON.parse(JSON.stringify(player));
     var copy_ai = JSON.parse(JSON.stringify(ai));
     restore_color(A_choose_x, A_choose_y, 'A');
+    //====================================================
     for (var i = 0; i < 3; i++) {
         for (var j = 0; j < 3; j++) {
             col_cnt[copy_player[j][i]][i] += 1;
@@ -177,73 +186,42 @@ function computer(ai, player) {
             }
         }
     }
-    if (NUM >= 3) {
-        for (var j = 0; j < 3; j++) {
-            if (col_cnt[NUM][j] >= 2 && can_done[j] >= 1) {
-                for (var i = 0; i < 3; i++) {
-                    if (ai[i][j] == 0) {
-                        B_choose_x = i;
-                        B_choose_y = j;
-                        ai[i][j] = NUM;
-                        judge(j, player);
-                        break;
-                    }
+    //=====================================================
+    // NUM讨论囊括到括号内
+
+    for (var j = 0; j < 3; j++) {
+        if (NUM >= 3 && col_cnt[NUM][j] >= 2 && can_done[j] >= 1) {
+            for (var i = 0; i < 3; i++) {
+                if (ai[i][j] == 0) {
+                    B_choose_x = i;
+                    B_choose_y = j;
+                    ai[i][j] = NUM;
+                    judge(j, player);
+                    break;
                 }
-                break;
             }
-            else if (NUM >= 4 && col_cnt[NUM][j] >= 1 && can_done[j] >= 1) {
-                for (var i = 0; i < 3; i++) {
-                    if (ai[i][j] == 0) {
-                        B_choose_x = i;
-                        B_choose_y = j;
-                        ai[i][j] = NUM;
-                        judge(j, player);
-                        break;
-                    }
+            break;
+        } else if (NUM >= 4 && col_cnt[NUM][j] >= 1 && can_done[j] >= 1) {
+            for (var i = 0; i < 3; i++) {
+                if (ai[i][j] == 0) {
+                    B_choose_x = i;
+                    B_choose_y = j;
+                    ai[i][j] = NUM;
+                    judge(j, player);
+                    break;
                 }
-                break;
             }
-            else if (col_cnt[4][j] >= 2 || col_cnt[5][j] >= 2 || col_cnt[6][j] >= 2 || col_cnt[3] == 3 && can_done[0] + can_done[1] + can_done[2] > can_done[j]) {
-                var max_point = -162;
-                var best_row = 0;
-                var best_col = 0;
-                for (var row = 0; row < 3; row++) {
-                    for (var col = 0; col < 3; col++) {
-                        if (col != j) {
-                            if (ai[row][col] != 0) {
-                                continue;
-                            }
-                            else {
-                                var copy_player = JSON.parse(JSON.stringify(player));
-                                var copy_ai = JSON.parse(JSON.stringify(ai));
-                                copy_ai[row][col] = NUM;
-                                judge(col, copy_player);
-                                point = count(copy_ai) - count(copy_player);
-                                if (point > max_point) {
-                                    best_row = row;
-                                    best_col = col;
-                                    max_point = point;
-                                }
-                            }
-                        }
-                    }
-                }
-                B_choose_x = best_row;
-                B_choose_y = best_col;
-                ai[best_row][best_col] = NUM;
-                judge(best_col, player);
-                break;
-            }
-            else {
-                var max_point = -162;
-                var best_row = 0;
-                var best_col = 0;
-                for (var row = 0; row < 3; row++) {
-                    for (var col = 0; col < 3; col++) {
+            break;
+        } else if (NUM >= 3 && (col_cnt[4][j] >= 2 || col_cnt[5][j] >= 2 || col_cnt[6][j] >= 2 || col_cnt[3] == 3) && can_done[0] + can_done[1] + can_done[2] > can_done[j]) {
+            var max_point = -162;
+            var best_row = 0;
+            var best_col = 0;
+            for (var row = 0; row < 3; row++) {
+                for (var col = 0; col < 3; col++) {
+                    if (col != j) {
                         if (ai[row][col] != 0) {
                             continue;
-                        }
-                        else {
+                        } else {
                             var copy_player = JSON.parse(JSON.stringify(player));
                             var copy_ai = JSON.parse(JSON.stringify(ai));
                             copy_ai[row][col] = NUM;
@@ -257,37 +235,140 @@ function computer(ai, player) {
                         }
                     }
                 }
-                B_choose_x = best_row;
-                B_choose_y = best_col;
-                ai[best_row][best_col] = NUM;
-                judge(best_col, player);
-                break;
             }
+            B_choose_x = best_row;
+            B_choose_y = best_col;
+            ai[best_row][best_col] = NUM;
+            judge(best_col, player);
+            break;
         }
-    }
-    else {
-        var jmax = 0;
-        var done_max = 0;
-        for (var j = 0; j < 3; j++) {
-            if (can_done[j] > done_max) {
-                done_max = can_done[j];
-                jmax = j;
+
+        //================================================================================================================
+        else if (NUM < 3 && (col_cnt[4][j] >= 2 || col_cnt[5][j] >= 2 || col_cnt[6][j] >= 2 || col_cnt[3] == 3) && can_done[0] + can_done[1] + can_done[2] > can_done[j]) {
+            avoid_j = j;
+            var colmax = 0;
+            var done_max = 0;
+            for (var col = 0; col < 3; col++) {
+                if (col != avoid_j) {
+                    if (can_done[col] > done_max) {
+                        done_max = can_done[col];
+                        colmax = col;
+                    }
+                }
             }
+            for (var i = 0; i < 3; i++) {
+                if (ai[i][colmax] == 0) {
+                    B_choose_x = i;
+                    B_choose_y = colmax;
+                    ai[i][colmax] = NUM;
+                    judge(colmax, player);
+                    break;
+                }
+            }
+            break;
         }
-        for (var i = 0; i < 3; i++) {
-            if (ai[i][jmax] == 0) {
-                B_choose_x = i;
-                B_choose_y = jmax;
-                ai[i][jmax] = NUM;
-                judge(jmax, player);
-                break;
+        //============
+        else if (NUM == 1 && col_cnt[1][j] >= 2 && can_done[0] + can_done[1] + can_done[2] > can_done[j]) {
+            avoid_j = j;
+            var colmax = 0;
+            var done_max = 0;
+            for (var col = 0; col < 3; col++) {
+                if (col != avoid_j) {
+                    if (can_done[col] > done_max) {
+                        done_max = can_done[col];
+                        colmax = col;
+                    }
+                }
             }
+            for (var i = 0; i < 3; i++) {
+                if (ai[i][colmax] == 0) {
+                    B_choose_x = i;
+                    B_choose_y = colmax;
+                    ai[i][colmax] = NUM;
+                    judge(colmax, player);
+                    break;
+                }
+            }
+            break;
+        }
+        //====
+        else if (NUM == 2 && (col_cnt[2][j] == 2 || col_cnt[2][j] == 1) && can_done[0] + can_done[1] + can_done[2] > can_done[j]) {
+            avoid_j = j;
+            var colmax = 0;
+            var done_max = 0;
+            for (var col = 0; col < 3; col++) {
+                if (col != avoid_j) {
+                    if (can_done[col] > done_max) {
+                        done_max = can_done[col];
+                        colmax = col;
+                    }
+                }
+            }
+            for (var i = 0; i < 3; i++) {
+                if (ai[i][colmax] == 0) {
+                    B_choose_x = i;
+                    B_choose_y = colmax;
+                    ai[i][colmax] = NUM;
+                    judge(colmax, player);
+                    break;
+                }
+            }
+            break;
+        }
+        //====
+        else if (NUM < 3 && j == 2) {
+            var colmax = 0;
+            var done_max = 0;
+            for (var col = 0; col < 3; col++) {
+                if (can_done[col] > done_max) {
+                    done_max = can_done[col];
+                    colmax = col;
+                }
+            }
+            for (var i = 0; i < 3; i++) {
+                if (ai[i][colmax] == 0) {
+                    B_choose_x = i;
+                    B_choose_y = colmax;
+                    ai[i][colmax] = NUM;
+                    judge(colmax, player);
+                    break;
+                }
+            }
+            break;
+        }
+        //================================================================================================================col_cnt[5][j]
+        else if (NUM >= 3 && j == 2) {
+            var max_point = -162;
+            var best_row = 0;
+            var best_col = 0;
+            for (var row = 0; row < 3; row++) {
+                for (var col = 0; col < 3; col++) {
+                    if (ai[row][col] != 0) {
+                        continue;
+                    } else {
+                        var copy_player = JSON.parse(JSON.stringify(player));
+                        var copy_ai = JSON.parse(JSON.stringify(ai));
+                        copy_ai[row][col] = NUM;
+                        judge(col, copy_player);
+                        point = count(copy_ai) - count(copy_player);
+                        if (point > max_point) {
+                            best_row = row;
+                            best_col = col;
+                            max_point = point;
+                        }
+                    }
+                }
+            }
+            B_choose_x = best_row;
+            B_choose_y = best_col;
+            ai[best_row][best_col] = NUM;
+            judge(best_col, player);
+            break;
         }
     }
     set_color(B_choose_x, B_choose_y, 'B');
     update_point();
     print_board();
-    //调整参数
     place = 0;
     A_round = 1;
     B_round = 0;
@@ -387,6 +468,12 @@ function restore_color(row, col, name) {
     x = document.getElementById(name + "_" + id);
     x.style.backgroundColor = "#88a4d6";
     x.style.color = "#112d4e";
+}
+function openDialog() {
+    document.getElementById('light').style.display = 'block';
+}
+function closeDialog() {
+    document.getElementById('light').style.display = 'none';
 }
 
 

@@ -27,6 +27,47 @@ body {
     background-color: #112d4e;
 }
 
+.float_window{
+    display: none; 
+    position: absolute; 
+    height: 200px;
+    width: 400px;
+    left:38%;
+    top: 30%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 15px solid #112d4e; 
+    border-radius: 20px;
+    background-color:#3f72af; 
+    padding-top: 35px;
+    z-index:1002; 
+    overflow: auto; 
+    text-align: center;
+    box-shadow: 0px 0px 1000px 1000px rgba(125, 181, 211, 0.335);
+}
+.float_window p{
+    font-size: 45px;
+    font-weight:bold;
+    color: #112d4e;
+
+}
+.float_window button{
+    height: 80px;
+    width: 140px;
+    border-radius: 20px;
+    border: 0px;
+    background-color: #88a4d6;
+    color: #112d4e;
+    font-weight: bold;
+    font-size: 23px;
+    margin-right: 20px;
+    box-shadow: 3px 3px 10px rgb(16, 55, 73);
+}
+.fw_op{
+    height: 80px;
+    width: 330px;
+    margin-left: 48px;
+    margin-top: 20px;
+}
 .main {
     height: 730px;
     width: 940px;
