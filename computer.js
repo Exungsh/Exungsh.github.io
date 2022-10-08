@@ -35,15 +35,16 @@ var B_choose_y = 0;
 
 //在window中打印游戏结果
 function end_game() {
+    openDialog();
     if (apoint > bpoint) {
-        x = document.getElementById("window");
-        x.innerHTML = "你赢了！！";
+        x = document.getElementById("result");
+        x.innerHTML = "You Win!!";
     } else if (apoint < bpoint) {
-        x = document.getElementById("window");
-        x.innerHTML = "电脑获胜💻！！";
+        x = document.getElementById("result");
+        x.innerHTML = "Computer Win!!";
     } else {
-        x = document.getElementById("window");
-        x.innerHTML = "罕见的平局！！";
+        x = document.getElementById("result");
+        x.innerHTML = "Draw!!";
     }
 }
 

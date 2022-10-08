@@ -21,18 +21,24 @@ bpoint = 0;
 place = 0;
 //是否可以扔骰子
 throw_chance = 1;
+//选择的位置
+var A_choose_x = 0;
+var A_choose_y = 0;
+var B_choose_x = 0;
+var B_choose_y = 0;
 
 //在window中打印游戏结果
 function end_game() {
+    openDialog();
     if (apoint > bpoint) {
-        x = document.getElementById("window");
-        x.innerHTML = "玩家A获胜！！";
+        x = document.getElementById("result");
+        x.innerHTML = "A Win!!";
     } else if (apoint < bpoint) {
-        x = document.getElementById("window");
-        x.innerHTML = "玩家B获胜！！";
+        x = document.getElementById("result");
+        x.innerHTML = "B Win!!";
     } else {
-        x = document.getElementById("window");
-        x.innerHTML = "罕见的平局！！";
+        x = document.getElementById("result");
+        x.innerHTML = "Draw!!";
     }
 }
 //传入棋盘名，返回1说明棋盘已满，游戏结束
@@ -108,10 +114,14 @@ function put_num_A(name, row, col) {
                 x = document.getElementById("window");
                 x.innerHTML = "不能下在这里！！";
             } else {
+                restore_color(B_choose_x, B_choose_y, 'B');
                 place = 0;
                 x = document.getElementById(name);
                 x.innerHTML = NUM;
                 player_a[row][col] = NUM;
+                A_choose_x = row;
+                A_choose_y = col;
+                set_color(A_choose_x, A_choose_y, 'A');
                 judge(col, player_b);
                 update_point();
                 print_board();
@@ -149,10 +159,14 @@ function put_num_B(name, row, col) {
                 x = document.getElementById("window");
                 x.innerHTML = "不能下在这里！！";
             } else {
+                restore_color(A_choose_x, A_choose_y, 'A');
                 place = 0;
                 x = document.getElementById(name);
                 x.innerHTML = NUM;
                 player_b[row][col] = NUM;
+                B_choose_x = row;
+                B_choose_y = col;
+                set_color(B_choose_x, B_choose_y, 'B');
                 judge(col, player_a);
                 update_point();
                 print_board();
@@ -242,4 +256,26 @@ function restart() {
     x.innerHTML = "现在是A的回合";
     update_point();
     print_board();
+    restore_color(A_choose_x, A_choose_y, 'A');
+    restore_color(B_choose_x, B_choose_y, 'B');
+}
+function set_color(row, col, name) {
+    var id = row * 3 + col + 1;
+    id = id.toString();
+    x = document.getElementById(name + "_" + id);
+    x.style.backgroundColor = "#112d4e";
+    x.style.color = "#88a4d6";
+}
+function restore_color(row, col, name) {
+    var id = row * 3 + col + 1;
+    id = id.toString();
+    x = document.getElementById(name + "_" + id);
+    x.style.backgroundColor = "#88a4d6";
+    x.style.color = "#112d4e";
+}
+function openDialog() {
+    document.getElementById('light').style.display = 'block';
+}
+function closeDialog() {
+    document.getElementById('light').style.display = 'none';
 }
