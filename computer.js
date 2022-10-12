@@ -477,16 +477,6 @@ function closeDialog() {
     document.getElementById('light').style.display = 'none';
 }
 
-
-
-
-
-
-
-
-
-
-
 //骰子代码
 /*!
  * author:jieyou
