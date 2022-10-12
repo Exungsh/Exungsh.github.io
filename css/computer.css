@@ -27,71 +27,73 @@ body {
     background-color: #112d4e;
 }
 
-.float_window{
-    display: none; 
-    position: absolute; 
-    height: 200px;
-    width: 400px;
-    left:38%;
+.float_window {
+    display: none;
+    position: absolute;
+    height: 14.455vw;
+    width: 28.910vw;
+    left: 38%;
     top: 30%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    border: 15px solid #112d4e; 
-    border-radius: 20px;
-    background-color:#3f72af; 
-    padding-top: 35px;
-    z-index:1002; 
-    overflow: auto; 
+    border: 1.084vw solid #112d4e;
+    border-radius: 1.446vw;
+    background-color: #3f72af;
+    padding-top: 2.530vw;
+    z-index: 1002;
+    overflow: auto;
     text-align: center;
-    box-shadow: 0px 0px 1000px 1000px rgba(125, 181, 211, 0.335);
+    box-shadow: 0.000vw 0.000vw 72.275vw 72.275vw rgba(125, 181, 211, 0.335);
 }
-.float_window p{
-    font-size: 45px;
-    font-weight:bold;
-    color: #112d4e;
 
+.float_window p {
+    font-size: 3.252vw;
+    font-weight: bold;
+    color: #112d4e;
 }
-.float_window button{
-    height: 80px;
-    width: 140px;
-    border-radius: 20px;
-    border: 0px;
+
+.float_window button {
+    height: 5.782vw;
+    width: 10.119vw;
+    border-radius: 1.446vw;
+    border: 0.000vw;
     background-color: #88a4d6;
     color: #112d4e;
     font-weight: 800;
-    font-size: 23px;
-    margin-right: 20px;
-    box-shadow: 3px 3px 10px rgb(16, 55, 73);
+    font-size: 1.662vw;
+    margin-right: 1.446vw;
+    box-shadow: 0.217vw 0.217vw 0.723vw rgb(16, 55, 73);
 }
-.fw_op{
-    height: 80px;
-    width: 330px;
-    margin-left: 48px;
-    margin-top: 20px;
+
+.fw_op {
+    height: 5.782vw;
+    width: 23.851vw;
+    margin-left: 3.469vw;
+    margin-top: 1.446vw;
 }
+
 .main {
-    height: 730px;
-    width: 940px;
+    height: 52.761vw;
+    width: 67.939vw;
     margin: 0 auto;
-    margin-bottom: 200px;
 }
 
 .bar {
     display: block;
     float: left;
     background-color: #88a4d6;
-    height: 700px;
-    width: 80px;
-    margin-top: 30px;
-    border-radius: 20px;
+    height: 50.593vw;
+    width: 5.782vw;
+    margin-top: 2.168vw;
+    border-radius: 1.446vw;
 }
 
 .whoround {
-    height: 250px;
-    width: 60px;
-    margin-left: 20px;
-    border-radius: 20px 0 0 20px;
+    height: 18.069vw;
+    width: 4.337vw;
+    margin-left: 1.446vw;
+    border-radius: 1.446vw 0 0 1.446vw;
     border: 0;
-    font-size: 35px;
+    font-size: 2.530vw;
     font-weight: bold;
     color: #112d4e;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -99,44 +101,45 @@ body {
 
 #who_A {
     background-color: #3f72af;
-    margin-top: 50px;
+    margin-top: 3.614vw;
 }
 
 #who_B {
-    margin-top: 100px;
+    margin-top: 7.228vw;
     background-color: rgba(255, 255, 255, 0);
 }
 
 .playboard {
     display: block;
     float: left;
-    margin: 30px;
-    height: 700px;
-    width: 350px;
-    border-radius: 20px;
+    margin: 2.168vw;
+    height: 50.593vw;
+    width: 25.296vw;
+    border-radius: 1.446vw;
     background-color: #3f72af;
 }
 
 .playboard button:active {
     transform: scale(0.95);
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    box-shadow: 0.217vw 0.145vw 1.590vw 0.072vw rgba(0, 0, 0, 0.24);
 }
+
 .playboard button:hover {
     transform: scale(1.05);
 }
 
 .A {
-    height: 330px;
-    width: 330px;
+    height: 23.851vw;
+    width: 23.851vw;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 0.723vw;
 }
 
 .B {
-    height: 330px;
-    width: 330px;
+    height: 23.851vw;
+    width: 23.851vw;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 1.446vw;
 }
 
 .playboard li {
@@ -145,14 +148,14 @@ body {
 }
 
 .playboard button {
-    height: 100px;
-    width: 100px;
-    margin: 5px;
+    height: 7.228vw;
+    width: 7.228vw;
+    margin: 0.361vw;
     background-color: #88a4d6;
-    border: 0px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 20px rgb(27, 92, 122);
-    font-size: 40px;
+    border: 0.000vw;
+    border-radius: 1.446vw;
+    box-shadow: 0.361vw 0.361vw 1.446vw rgb(27, 92, 122);
+    font-size: 2.891vw;
     font-weight: bolder;
     color: #112d4e;
 }
@@ -160,57 +163,58 @@ body {
 .operate {
     display: block;
     float: left;
-    height: 700px;
-    width: 450px;
+    height: 50.593vw;
+    width: 32.524vw;
     background-color: #3f72af;
-    border-radius: 20px;
-    margin-top: 30px;
+    border-radius: 1.446vw;
+    margin-top: 2.168vw;
 }
 
 .pointboard {
-    height: 280px;
-    width: 400px;
+    height: 20.237vw;
+    width: 28.910vw;
     background-color: #88a4d6;
     color: #112d4e;
     margin: 0 auto;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    padding-top: 40px;
-    padding-left: 20px;
-    border-radius: 20px;
-    font-size: 50px;
+    margin-top: 1.084vw;
+    margin-bottom: 1.446vw;
+    padding-top: 2.891vw;
+    padding-left: 1.446vw;
+    border-radius: 1.446vw;
+    font-size: 3.614vw;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .point {
-    margin-left: 10px;
-    font-size: 35px;
+    margin-left: 0.723vw;
+    font-size: 2.530vw;
 }
 
 .round {
-    margin-left: 10px;
-    margin-bottom: 20px;
+    margin-left: 0.723vw;
+    margin-bottom: 1.446vw;
 }
 
 .window {
-    height: 40px;
-    width: 360px;
-    margin-top: 30px;
+    height: 2.891vw;
+    width: 26.019vw;
+    margin-top: 2.168vw;
+    line-height: 2.891vw;
     background-color: #112d4e;
-    font-size: 35px;
-    padding: 12px;
+    font-size: 2.530vw;
+    padding: 0.867vw;
     color: #88a4d6;
-    border-radius: 20px;
+    border-radius: 1.446vw;
 }
 
 .touzi {
-    height: 325px;
-    width: 420px;
+    height: 23.489vw;
+    width: 30.356vw;
     background-color: #88a4d6;
     color: #112d4e;
     margin: 0 auto;
-    border-radius: 20px;
-    margin-top: 20px;
+    border-radius: 1.446vw;
+    margin-top: 1.446vw;
     font-weight: bold;
 }
 
@@ -221,36 +225,37 @@ body {
 #area {
     display: block;
     float: left;
-    height: 200px;
-    width: 200px;
-    border-radius: 100px;
+    height: 14.455vw;
+    width: 14.455vw;
+    border-radius: 7.228vw;
     margin: 0 auto;
     background-color: #112d4e;
-    margin: 0 20px;
-    margin-top: 62px;
-    box-shadow: 3px 3px 20px rgb(16, 55, 73);
+    margin: 0 1.446vw;
+    margin-top: 4.481vw;
+    box-shadow: 0.217vw 0.217vw 1.446vw rgb(16, 55, 73);
 }
 
 #operation {
     display: block;
     float: left;
-    height: 160px;
-    width: 150px;
+    height: 11.564vw;
+    width: 10.841vw;
     text-align: center;
-    margin-top: 72px;
+    margin-top: 5.204vw;
 }
 
 #roll,
 #restart {
-    height: 80px;
-    width: 150px;
-    border-radius: 20px;
-    border: 0px;
+    height: 5.782vw;
+    width: 10.841vw;
+    border-radius: 1.446vw;
+    border: 0.000vw;
     color: #88a4d6;
-    font-size: 30px;
-    margin-bottom: 20px;
-    box-shadow: 3px 3px 10px rgb(16, 55, 73);
+    font-size: 2.168vw;
+    margin-bottom: 1.446vw;
+    box-shadow: 0.217vw 0.217vw 0.723vw rgb(16, 55, 73);
 }
+
 #roll:hover,
 #restart:hover {
     transform: scale(1.05);
@@ -258,14 +263,14 @@ body {
 
 .touzi button:active {
     transform: scale(0.98);
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    box-shadow: 0.217vw 0.145vw 1.590vw 0.072vw rgba(0, 0, 0, 0.24);
 }
 
 .right {
     float: left;
-    height: 700px;
-    width: 500px;
+    height: 50.593vw;
+    width: 36.138vw;
     background-color: #3f72af;
-    margin: 30px;
-    border-radius: 20px;
+    margin: 2.168vw;
+    border-radius: 1.446vw;
 }
